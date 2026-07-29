@@ -1,51 +1,73 @@
 # MedicineSearch
 
-## Hướng Dẫn Cài Đặt
+## Installation Guide
 
-1. **Tạo và Kích Hoạt Môi Trường Python**
-   - Đảm bảo bạn đã cài đặt Python 3.13.
-   - Tạo môi trường ảo:
-     ```
-     python3.13 -m venv venv
-     ```
-   - Kích hoạt môi trường ảo:
-     - Trên macOS/Linux:
-       ```
-       source venv/bin/activate
-       ```
-     - Trên Windows:
-       ```
-       venv\Scripts\activate
-       ```
+### 1. Create and Activate a Python Virtual Environment
 
-2. **Cài Đặt Các Thư Viện Cần Thiết**
-   - Cài đặt các thư viện cần thiết bằng lệnh sau:
-     ```
-     pip install -r requirements.txt
-     ```
+Make sure Python 3.13 is installed on your system.
 
-3. **Di Chuyển Models**
-   - Chạy lệnh sau để khởi tạo cơ sở dữ liệu:
-      ```
-      python manage.py migrate
-      ```
+Create a virtual environment:
 
-4. **Khởi Tạo Cơ Sở Dữ Liệu và Vector Hóa Dữ Liệu**
-   - Chạy lệnh sau để khởi tạo cơ sở dữ liệu và vector hóa dữ liệu:
-      ```
-      python vectorize.py
-      ```
+```bash
+python3.13 -m venv venv
+```
 
-5. **Thiết Lập Biến Môi Trường**
-   - Thêm khóa gemini vào file .env:
-      ```
-      GEMINI_KEY="KHOA_GEMINI_CUA_BAN"
-      ``` 
+Activate the virtual environment:
 
-6. **Chạy Dự Án**
-   - Khởi động ứng dụng FastAPI bằng lệnh:
-     ```
-     python manage.py runserver
-     ```
+On macOS/Linux:
 
-   - Kiểm tra liên kết này: http://127.0.0.1:8000/search/
+```bash
+source venv/bin/activate
+```
+
+On Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 2. Install the Required Dependencies
+
+Install all required packages from the `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root directory and add your Gemini API key:
+
+```env
+GEMINI_KEY="YOUR_GEMINI_API_KEY"
+```
+
+### 4. Apply Database Migrations
+
+Run the following command to initialize and update the database:
+
+```bash
+python manage.py migrate
+```
+
+### 5. Vectorize the Dataset
+
+Run the following command to process and vectorize the medical dataset:
+
+```bash
+python vectorize.py
+```
+
+### 6. Run the Application
+
+Start the Django development server:
+
+```bash
+python manage.py runserver
+```
+
+Open the following URL in your browser:
+
+```text
+http://127.0.0.1:8000/search/
+```
